@@ -6,11 +6,13 @@
         "dockerfile": "Dockerfile",
         "args": {
             "USERNAME": "${localEnv:USER}",
-            "ROS_DISTRO": "humble"
+	    "DOCKER_REPO": "osrf/ros",
+            "ROS_DISTRO": "noetic",
+	    "IMAGE_SUFFIX": "-desktop-full"
         }
     },
     "workspaceFolder": "/home/ws",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws/src,type=bind",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws,type=bind",
     "customizations": {
         "vscode": {
             "extensions":[
@@ -35,11 +37,8 @@
     "mounts": [
         "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
         "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/../cache/humble/build,target=/home/ws/build,type=bind",
-        "source=${localWorkspaceFolder}/../cache/humble/install,target=/home/ws/install,type=bind",
-        "source=${localWorkspaceFolder}/../cache/humble/log,target=/home/ws/log,type=bind",
         "source=${localEnv:HOME}/.ssh,target=/home/${localEnv:USER}/.ssh,type=bind"
     ],
-    "initializeCommand": "sh ./.devcontainer/initialize.sh humble",
-    "postCreateCommand": "sh ./src/.devcontainer/postCreate.sh"
+    "initializeCommand": "sh ./.devcontainer/initialize.sh",
+    "postCreateCommand": "sh ./.devcontainer/postCreate.sh"
 }
