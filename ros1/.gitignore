@@ -1,5 +1,4 @@
 .catkin_tools
-.vscode
 build_debug
 devel_debug
 logs_debug
