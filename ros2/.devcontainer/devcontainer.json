@@ -6,9 +6,9 @@
         "dockerfile": "Dockerfile",
         "args": {
             "USERNAME": "${localEnv:USER}",
-	        "DOCKER_REPO": "osrf/ros",
+            "DOCKER_REPO": "osrf/ros",
             "ROS_DISTRO": "humble",
-	        "IMAGE_SUFFIX": "-desktop-full"
+            "IMAGE_SUFFIX": "-desktop-full"
         }
     },
     "workspaceFolder": "/home/ws",
