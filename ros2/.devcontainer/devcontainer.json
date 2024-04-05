@@ -32,7 +32,8 @@
     },
     "runArgs": [
         "--net=host",
-        "-e", "DISPLAY=${env:DISPLAY}"
+        "-e", "DISPLAY=${env:DISPLAY}",
+        "--gpus", "all"
     ],
     "mounts": [
         "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",

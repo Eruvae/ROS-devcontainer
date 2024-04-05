@@ -11,6 +11,18 @@ For a guide to set up dev containers, check out [this tutorial](https://code.vis
 For installing docker on Ubuntu, you can use the docker apt repository, as described in the [docker docs](https://docs.docker.com/engine/install/ubuntu/).
 The official docker packages of Ubuntu may also work, but may be older versions.
 
+## NVIDIA GPU acceleration
+
+To enable GPU acceleration in the containers, make sure you also install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html). Note: If you already have the CUDA apt repository set up, it includes the nvidia-container-toolkit package, so you don't need to add the nvidia-container apt repository. Run:
+
+```
+sudo apt-get install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+```
+
+In devcontainer.json, make sure "--gpus", "all" is added to runArgs (this is already the case for the workspaces in this repository), or configure it to use a specific device.
+
 ## Workspace setup
 
 The ros1 and ros2 folders contain a hidden .devcontainer folder with the configuration files for the container.
